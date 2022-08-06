@@ -30,7 +30,7 @@ const Navbar = () => {
 
     function renderLoginElement(user){
         if(user){
-            return <NavLogin user={user}/>
+            return <NavLogin user={user} cart={0}/>
         } else {
             return <NavLogout />
         }   
