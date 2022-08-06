@@ -1,0 +1,40 @@
+.dropdown-menu {
+    min-width: unset;
+}
+.number {
+    align-items: center;
+    background-color: #e60000;
+    border-radius: 100%;
+    color: white;
+    display: flex;
+    font-size: 8px;
+    height: 18px;
+    justify-content: center;
+    position: absolute;
+    right: 15px;
+    text-align: center;
+    top: 16px;
+    width: 18px;
+}
+@media screen and (max-device-width: 768px) {
+    .mobile {
+        display: flex;
+    }
+    .desktop {
+        display: none;
+    }
+    .username {
+        display: none;
+    }
+}
+@media screen and (min-device-width: 768px) {
+    .mobile {
+        display: none;
+    }
+    .desktop {
+        display: flex;
+    }
+    .username {
+        display: inline;
+    }
+}
