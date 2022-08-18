@@ -6,7 +6,9 @@ function App() {
   return (
     <div className='app'>
       <Navbar />
-      <ItemListContainer greetings="Welcome to e-Magic"/>
+      <div className='body'>
+        <ItemListContainer />
+      </div>
     </div>
   );
 }
