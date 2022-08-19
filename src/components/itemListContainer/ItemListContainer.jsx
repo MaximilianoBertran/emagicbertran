@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
-import Item from './complements/Item';
+import ItemList from './complements/ItemList';
 
 const ItemListContainer = (props) => {
   const [products, setProducts] = useState([])
@@ -15,7 +15,8 @@ const ItemListContainer = (props) => {
       name:"Escudo", 
       description:"Un escudo comun", 
       img:"https://st4.depositphotos.com/1472772/31373/i/600/depositphotos_313734032-stock-photo-wooden-medieval-shield-viking-shield.jpg",
-      stock: 3
+      stock: 3,
+      initial: 1
     },
     {
       name:"Collar", 
@@ -45,14 +46,8 @@ const ItemListContainer = (props) => {
   
 
   return (
-    <div className="d-flex flex-wrap justify-content-evenly">
-      {
-        products.map((item, index) => 
-          (
-            <Item key={index} name={item.name} description={item.description}img={item.img} stock={item.stock} />
-          )
-        )
-      }
+    <div className="w-100">
+      <ItemList products={products} />
     </div>
   )
 }
