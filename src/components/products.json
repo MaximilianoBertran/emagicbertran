@@ -1,0 +1,71 @@
+{
+    "products":
+    [
+        {
+            "id":1,
+            "name":"Espada", 
+            "description":"Una espada comun", 
+            "extension":"Una espada comun hecha de hierro por los herreros de los barrios bajos. No tiene magia embebida, no recomendada para magos.",
+            "img":"https://st.depositphotos.com/2907565/4122/v/600/depositphotos_41225075-stock-illustration-cartoon-sword-vector-illustration.jpg",
+            "stock": 5,
+            "price": 55.00,
+            "categories":
+            ["weapons"]
+        }, {
+            "id":2,
+            "name":"Escudo", 
+            "description":"Un escudo comun",
+            "extension":"Una escudo comun realizado con madera de pino y esqueleto de hierro. Apto para novatos.",
+            "img":"https://st4.depositphotos.com/1472772/31373/i/600/depositphotos_313734032-stock-photo-wooden-medieval-shield-viking-shield.jpg",
+            "stock": 3,
+            "price": 40.00,
+            "categories":
+            ["weapons","armors"]
+        },
+        {
+            "id":3,
+            "name":"Collar", 
+            "description":"Un collar comun",
+            "extension":"Una espada comun realizado por los aprendices de la torre de magia, brinda defensa mágica básica.", 
+            "img":"https://thumbs.dreamstime.com/b/amuleto-o-collar-m%C3%A1gico-con-los-dientes-116208253.jpg",
+            "stock": 1,
+            "price": 25.00,
+            "categories":
+            ["accesories"]
+        },
+        {
+            "id":4,
+            "name":"Armadura", 
+            "description":"Una armadura comun",
+            "extension":"Una armadura comun de cuero, brinda defensa basica para aventureros novatos que requieran buena movilidad.",
+            "img":"https://www.eviltailors.com/77003-thickbox_default_2x/leather-torso-armour-with-cross-banding.jpg",
+            "stock": 10,
+            "price": 70.00,
+            "categories":
+            ["armors"]
+        },
+        {
+            "id":5,
+            "name":"Casco", 
+            "description":"Un casco comun",
+            "extension":"Una casco comun pesado para aventureros novatos que vean su futuro en la escuadra de caballeros.",
+            "img":"https://thumbs.dreamstime.com/b/planche-el-casco-de-la-armadura-de-la-fantas%C3%ADa-de-vikingo-para-el-juego-o-las-tarjetas-98281702.jpg",
+            "stock": 8,
+            "price": 35.00,
+            "categories":
+            ["armors"]
+        }
+        ,
+        {
+            "id":6,
+            "name":"Libro Arkano", 
+            "description":"Libro de hechizos Arkanos",
+            "extension":"Libro de hechizos Arkanos escrito por los antiguos dioses. Recomendado para aventureros de Rango S.",
+            "img":"https://i.pinimg.com/736x/e1/dc/89/e1dc8995e458aef1852a99d648ccc3b3.jpg",
+            "stock": 1,
+            "price": 5000.00,
+            "categories":
+            ["spellbooks"]
+        }
+    ]
+}

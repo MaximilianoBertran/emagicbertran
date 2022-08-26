@@ -2,8 +2,7 @@ import React, { useState} from 'react'
 
 const ItemCount = (props) => {
     const {stock} = props;
-    const [count, setCount] = useState(props.initial);
-
+    const [count, setCount] = useState(props.initial ?? 0);
     function less() {
         if (count-1 >= 0) {
             setCount(count - 1)
@@ -24,7 +23,7 @@ const ItemCount = (props) => {
                 <button type="button" onClick={ () => add()} className={ count+1 <= stock ? "btn btn-outline-secondary border-0 rounded-0 col-4" : "btn btn-outline-secondary border-0 rounded-0 col-4 disabled"}>+</button>
             </div>
             <div className="row d-grid gap-2">
-                <button type="button" onClick={ props.onAdd } className={ count > 0 ? "btn btn-outline-primary" : "btn btn-outline-primary disabled"}>Agregar a carrito</button>
+                <button type="button" onClick={ props.onAdd } className={ count > 0 ? "btn btn-primary" : "btn btn-primary disabled"}>Agregar a carrito</button>
             </div>
         </div>
     )

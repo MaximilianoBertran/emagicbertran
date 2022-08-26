@@ -1,0 +1,42 @@
+{
+    "routes":
+    [
+        {
+            "label": "Home", 
+            "to": "/", 
+            "childs": false 
+        },
+        {
+            "label": "About Us", 
+            "to": "/about-us", 
+            "childs": false
+        },
+        {
+            "label": "Categories", 
+            "to": "#", 
+            "childs": 
+            [
+                {
+                    "label": "Armors", 
+                    "to": "/", 
+                    "childs": false 
+                },
+                {
+                    "label": "Accesories", 
+                    "to": "/", 
+                    "childs": false
+                },
+                {
+                    "label": "SpellBooks", 
+                    "to": "/", 
+                    "childs": false
+                },
+                {
+                    "label": "Weapons", 
+                    "to": "/", 
+                    "childs": false
+                }
+            ] 
+        }
+    ]    
+}

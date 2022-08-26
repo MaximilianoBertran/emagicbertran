@@ -2,12 +2,13 @@ import React from 'react'
 import Item from './Item';
 
 const ItemList = (props) => {
+    const products = props.category ? props.products.filter((item) => item.categories.includes(props.category)) : props.products
     return (
-        <div className="d-flex flex-wrap justify-content-start">
+        <div className="d-flex flex-wrap justify-content-center">
             {
-                props.products.map((item, index) => 
+                products.map((item, index) => 
                     (
-                        <Item key={index} name={item.name} description={item.description}img={item.img} stock={item.stock} initial={item.initial ?? 0} />
+                        <Item key={index} id={item.id} name={item.name} description={item.description}img={item.img} stock={item.stock} initial={item.initial ?? 0} />
                     )
                 )
             }

@@ -1,0 +1,10 @@
+@media screen and (max-device-width: 768px) {
+    .detail {
+        width: 100%!important;
+    }
+}
+@media screen and (min-device-width: 768px) {
+    .detail {
+        width: 75%!important;
+    }
+}

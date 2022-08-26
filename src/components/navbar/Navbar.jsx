@@ -6,33 +6,15 @@ import NavbarMultiItem from './complements/NavbarMultiItem';
 import NavLogin from './complements/NavLogin';
 
 import CartWidget from './complements/CartWidget';
-import Logo from './complements/Logo';
+import Logo from './complements/Logo'
+import config from './config.json'
 
 
 const Navbar = () => {
 
-    const navBarItems = [
-        { name: "Home", href: "/", childs: false },
-        { name: "About Us", href: "/", childs: false },
-        { name: "Categories", href: "/", childs: [
-            { name: "Spells", href: "/", childs: false },
-            { name: "Books", href: "/", childs: false },
-            { name: "Runes", href: "/", childs: false },
-            { name: "Weapons", href: "/", childs: false }
-        ] }
-    ];
-
     const user = {name: "Maximiliano", apellido: "Bertran", img: "https://www.nacionflix.com/__export/1645312494958/sites/debate/img/2022/02/19/serie-halo-misterioso-rostro-master-chief.jpg_1339198940.jpg"}
     const cart = 0
     const appName = "e-Magic"
-
-    function renderNavElement(item, index){
-        if(item.childs){
-            return <NavbarMultiItem name={item.name} childs={item.childs} index={index} />
-        } else {
-            return <NavbarItem name={item.name} href={item.href} index={index}/>
-        }   
-    }
 
     function renderLoginElement(user){
         if(user){
@@ -52,9 +34,12 @@ const Navbar = () => {
                     <Logo name={ appName } height={ 40 } />
                     <div className="collapse navbar-collapse justify-content-md-center" id="navbarNav">
                         <ul className="navbar-nav">
-                            { navBarItems.map((item, index) =>
+                            { 
+                            config.routes.map((item, index) =>
                             (
-                                renderNavElement(item, index)
+                                item.childs 
+                                ? <NavbarMultiItem label={item.label} childs={item.childs} index={index} />
+                                : <NavbarItem label={item.label} to={item.to} index={index}/>
                             )
                             )}
                         </ul>
@@ -73,9 +58,11 @@ const Navbar = () => {
                     <CartWidget cart={cart} />
                     <div className="collapse navbar-collapse justify-content-md-center" id="navbarNav">
                         <ul className="navbar-nav">
-                            { navBarItems.map((item, index) =>
+                            { config.routes.map((item, index) =>
                             (
-                                renderNavElement(item, index)
+                                item.childs 
+                                ? <NavbarMultiItem label={item.label} childs={item.childs} index={index} />
+                                : <NavbarItem label={item.label} to={item.to} index={index}/>
                             )
                             )}
                         </ul>
