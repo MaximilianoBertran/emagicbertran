@@ -13,7 +13,7 @@ const Item = (props) => {
           <img src={props.img} className="card-img-top" alt={props.name} />
         </Link>
         <div className="card-body">
-            <h5 className="card-title">{props.name}</h5>
+            <h5 className="card-title text-center">{props.name}</h5>
             <p className="card-text">{props.description}</p>
         </div>
         

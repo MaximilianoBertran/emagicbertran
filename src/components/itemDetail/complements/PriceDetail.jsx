@@ -7,12 +7,12 @@ const PriceDetail = (props) => {
   const [ quote , setQuote ] = useState(1)
   const inflation = 70
 
-  function setNewPrice(select) {
-    setQuote(select)
-    if(select < 6) {
+  const handleChange = (option) => {
+    setQuote(option)
+    if(option < 6) {
       setPrice(originalPrice)
     } else {
-      setPrice(originalPrice + originalPrice * ((inflation * select / 12) / 100))
+      setPrice(originalPrice + originalPrice * ((inflation * option / 12) / 100))
     }
   }
   return (
@@ -20,7 +20,7 @@ const PriceDetail = (props) => {
       <h2> $ { parseFloat(price).toFixed(2) }</h2>
       <h5> ${ parseFloat(price/quote).toFixed(2) } x { quote } = ${ parseFloat(price).toFixed(2) }</h5>
       <label for="Quote">Cuotas</label>
-      <select id="Quote" name="Quote" className='form-select form-select-sm' defaultValue={ '1' } onChange={ (option) => setNewPrice(option.target.value) }>
+      <select id="Quote" name="Quote" className='form-select form-select-sm' defaultValue={ '1' } onChange={ (option) => handleChange(option.target.value) }>
         <option value="1">1</option>
         <option value="3">3</option>
         <option value="6">6</option>

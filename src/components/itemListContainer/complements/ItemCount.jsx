@@ -3,13 +3,13 @@ import React, { useState} from 'react'
 const ItemCount = (props) => {
     const {stock} = props;
     const [count, setCount] = useState(props.initial ?? 0);
-    function less() {
+    const less = () => {
         if (count-1 >= 0) {
             setCount(count - 1)
         }
     }
 
-    function add() {
+    const add = () => {
         if (count+1 <= stock) {
             setCount(count + 1)
         }
