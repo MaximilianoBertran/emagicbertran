@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react'
 import { createContext } from 'react'
 
 export const GlobalContext = createContext()
@@ -18,31 +19,31 @@ const GlobalProvider = ({children}) => {
   const addProduct = (product, count) => {
     const index = cart.findIndex(item => item.id === Number(product.id))
     if(index >= 0){
-      let array = cart
-      array[index].cant += count 
-      setCart(array)
+      sumProduct(index, count)
     } else {
       product.cant = count
       setCart([...cart, product])
     }
   }
 
-  const sumProduct = (index) => {
-    let array = cart
-    array[index].cant += 1 
-    setCart(array)
+  const sumProduct = (index, count = 1) => {
+    const product = cart[index]
+    product.cant += count
+    cart.splice(index, 1)
+    setCart([...cart, product])
   }
 
   const lessProduct = (index) => {
-    let array = cart
-    array[index].cant -= 1 
-    setCart(array)
+    const product = cart[index]
+    product.cant -= 1
+    cart.splice(index, 1)
+    setCart([...cart, product])
   }
 
   const deleteProduct = (index) => {
-    let array = cart.splice(index,1)
-    console.log(array)
-    setCart(array)
+    setCart(cart.filter((item, itemIndex) => {
+      return itemIndex !== index 
+    }))
   }
 
   const clearCart = () => {

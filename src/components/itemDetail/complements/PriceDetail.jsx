@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import PriceFormat from '../../itemListContainer/complements/PriceFormat'
 
 const PriceDetail = (props) => {
   const originalPrice = props.price
@@ -17,8 +18,8 @@ const PriceDetail = (props) => {
   }
   return (
     <div className='text-center mb-5 p-3' style={{ height: "180px" }}>
-      <h2> $ { parseFloat(price).toFixed(2) }</h2>
-      <h5> ${ parseFloat(price/quote).toFixed(2) } x { quote } = ${ parseFloat(price).toFixed(2) }</h5>
+      <h2> <PriceFormat price={ price } /></h2>
+      <h5> <p>{ quote } x </p><PriceFormat price={ parseFloat(price/quote).toFixed(2) } /> </h5>
       <label for="Quote">Cuotas</label>
       <select id="Quote" name="Quote" className='form-select form-select-sm' defaultValue={ '1' } onChange={ (option) => handleChange(option.target.value) }>
         <option value="1">1</option>

@@ -8,7 +8,7 @@
             "extension":"Una espada comun hecha de hierro por los herreros de los barrios bajos. No tiene magia embebida, no recomendada para magos.",
             "img":"https://st.depositphotos.com/2907565/4122/v/600/depositphotos_41225075-stock-illustration-cartoon-sword-vector-illustration.jpg",
             "stock": 5,
-            "price": 55.00,
+            "price": 55.12,
             "categories":
             ["weapons"]
         }, {
@@ -18,7 +18,7 @@
             "extension":"Una escudo comun realizado con madera de pino y esqueleto de hierro. Apto para novatos.",
             "img":"https://st4.depositphotos.com/1472772/31373/i/600/depositphotos_313734032-stock-photo-wooden-medieval-shield-viking-shield.jpg",
             "stock": 3,
-            "price": 40.00,
+            "price": 40.25,
             "categories":
             ["weapons","armors"]
         },

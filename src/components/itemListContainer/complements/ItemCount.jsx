@@ -3,7 +3,7 @@ import { GlobalContext } from '../../../context/GlobalProvider';
 
 const ItemCount = (props) => {
     const {product} = props;
-    const [count, setCount] = useState(product.initial ?? 0);
+    const [count, setCount] = useState(0);
     const {addProduct, findCartById} = useContext (GlobalContext)
 
     const less = () => {
@@ -18,6 +18,11 @@ const ItemCount = (props) => {
         }
     }
 
+    const addCart = () => {
+        addProduct(product, count)
+        setCount(0)
+    }
+
     return (
         <div className='itemCount'>
             <div className="row justify-content-start border border-2 border-secondary rounded w-auto">
@@ -26,7 +31,7 @@ const ItemCount = (props) => {
                 <button type="button" onClick={ () => add()} className={ count+1 + findCartById(product.id) <= product.stock ? "btn btn-outline-secondary border-0 rounded-0 col-4" : "btn btn-outline-secondary border-0 rounded-0 col-4 disabled"}>+</button>
             </div>
             <div className="row d-grid gap-2">
-                <button type="button" onClick={ () => addProduct(product, count) } className={ count < 1 || (count + findCartById(product.id)) > product.stock ? "btn btn-primary disabled" : "btn btn-primary"}>Agregar a carrito</button>
+                <button type="button" onClick={ () => addCart() } className={ count < 1 || (count + findCartById(product.id)) > product.stock ? "btn btn-primary disabled" : "btn btn-primary"}>Agregar a carrito</button>
             </div>
         </div>
     )
