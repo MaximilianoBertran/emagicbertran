@@ -29,14 +29,12 @@ const GlobalProvider = ({children}) => {
 
   const sumProduct = (index) => {
     let array = cart
-    setCart([])
     array[index].cant += 1 
     setCart(array)
   }
 
   const lessProduct = (index) => {
     let array = cart
-    setCart([])
     array[index].cant -= 1 
     setCart(array)
   }
@@ -44,7 +42,6 @@ const GlobalProvider = ({children}) => {
   const deleteProduct = (index) => {
     let array = cart.splice(index,1)
     console.log(array)
-    setCart([])
     setCart(array)
   }
 
