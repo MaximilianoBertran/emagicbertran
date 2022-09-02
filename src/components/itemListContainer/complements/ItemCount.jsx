@@ -26,7 +26,7 @@ const ItemCount = (props) => {
                 <button type="button" onClick={ () => add()} className={ count+1 + findCartById(product.id) <= product.stock ? "btn btn-outline-secondary border-0 rounded-0 col-4" : "btn btn-outline-secondary border-0 rounded-0 col-4 disabled"}>+</button>
             </div>
             <div className="row d-grid gap-2">
-                <button type="button" onClick={ () => addProduct(product, count) } className={ count > 0 ? "btn btn-primary" : "btn btn-primary disabled"}>Agregar a carrito</button>
+                <button type="button" onClick={ () => addProduct(product, count) } className={ count < 1 || (count + findCartById(product.id)) > product.stock ? "btn btn-primary disabled" : "btn btn-primary"}>Agregar a carrito</button>
             </div>
         </div>
     )
