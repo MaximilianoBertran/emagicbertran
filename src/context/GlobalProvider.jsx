@@ -19,7 +19,7 @@ const GlobalProvider = ({children}) => {
     const index = cart.findIndex(item => item.id === Number(product.id))
     if(index >= 0){
       let array = cart
-      array[index].cant += 1 
+      array[index].cant += count 
       setCart(array)
     } else {
       product.cant = count
@@ -29,19 +29,23 @@ const GlobalProvider = ({children}) => {
 
   const sumProduct = (index) => {
     let array = cart
+    setCart([])
     array[index].cant += 1 
     setCart(array)
   }
 
   const lessProduct = (index) => {
     let array = cart
+    setCart([])
     array[index].cant -= 1 
     setCart(array)
   }
 
   const deleteProduct = (index) => {
-    setCart(cart.splice(index))
-    console.log(cart)
+    let array = cart.splice(index,1)
+    console.log(array)
+    setCart([])
+    setCart(array)
   }
 
   const clearCart = () => {
