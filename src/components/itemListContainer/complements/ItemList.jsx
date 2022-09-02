@@ -8,7 +8,7 @@ const ItemList = (props) => {
             {
                 products.map((item, index) => 
                     (
-                        <Item key={index} id={item.id} name={item.name} description={item.description}img={item.img} stock={item.stock} initial={item.initial ?? 0} />
+                        <Item key={index} product={item} />
                     )
                 )
             }
