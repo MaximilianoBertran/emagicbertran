@@ -3,13 +3,11 @@
     [
         {
             "label": "Home", 
-            "to": "/", 
-            "childs": false 
+            "to": "/"
         },
         {
             "label": "About Us", 
-            "to": "/about-us", 
-            "childs": false
+            "to": "/about-us"
         },
         {
             "label": "Categories", 

@@ -16,7 +16,15 @@ const ItemListContainer = (props) => {
   
   return (
     <div className="w-100">
-      <ItemList category={params.category ?? null} products={products} />
+      { products.length < 1 ?
+        <div className="d-flex justify-content-center mt-5">
+          <div className="spinner-border text-warning" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        :
+        <ItemList category={params.category ?? null} products={products} />
+      }
     </div>
   )
 }

@@ -19,7 +19,14 @@ const ItemView = () => {
   return (
     <div className="container w-75 pt-4 d-flex flex-wrap justify-content-center">
       {
-        product.id ? <ItemDetail product={product}/> : "Cargando"
+        product.id ? 
+        <ItemDetail product={product}/> 
+        : 
+        <div className="d-flex justify-content-center mt-5">
+          <div className="spinner-border text-warning" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
       }
     </div>
   )

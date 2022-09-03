@@ -9,9 +9,9 @@ const NavbarMultiItem = (props) => {
                 {label}
             </Link>
             <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                { childs.map((item, key) =>
+                { childs.map((item, i) =>
                 (
-                    <li key={key}><Link className="dropdown-item" to={`${item.to}${item.label.toLowerCase()}`}>{item.label}</Link></li>
+                    <li key={index+i}><Link className="dropdown-item" to={`${item.to}${item.label.toLowerCase()}`}>{item.label}</Link></li>
                 )
                 )}
             </ul>

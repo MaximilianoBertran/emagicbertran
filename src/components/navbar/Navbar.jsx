@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import './css/navbar.css'
 import NavLogout from './complements/NavLogout';
 import NavbarItem from './complements/NavbarItem';
@@ -35,13 +35,14 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse justify-content-md-center" id="navbarNav">
                         <ul className="navbar-nav">
                             { 
-                            config.routes.map((item, index) =>
-                            (
-                                item.childs 
-                                ? <NavbarMultiItem label={item.label} childs={item.childs} index={index} />
-                                : <NavbarItem label={item.label} to={item.to} index={index}/>
-                            )
-                            )}
+                                config.routes.map((item, index) => (
+                                    <Fragment key={index}>
+                                        {item.childs 
+                                        ? <NavbarMultiItem label={item.label} childs={item.childs} index={"d"+index} />
+                                        : <NavbarItem label={item.label} to={item.to} index={"d"+index}/>}
+                                    </Fragment>
+                                ))
+                            }
                         </ul>
                     </div>
                     { renderLoginElement(user) }
@@ -58,13 +59,13 @@ const Navbar = () => {
                     <CartWidget cart={cart} />
                     <div className="collapse navbar-collapse justify-content-md-center" id="navbarNav">
                         <ul className="navbar-nav">
-                            { config.routes.map((item, index) =>
-                            (
-                                item.childs 
-                                ? <NavbarMultiItem label={item.label} childs={item.childs} index={index} />
-                                : <NavbarItem label={item.label} to={item.to} index={index}/>
-                            )
-                            )}
+                            { config.routes.map((item, index) => (
+                                <Fragment key={index}>
+                                    {item.childs 
+                                    ? <NavbarMultiItem label={item.label} childs={item.childs} index={"m"+index} />
+                                    : <NavbarItem label={item.label} to={item.to} index={"m"+index}/>}
+                                </Fragment>
+                            ))}
                         </ul>
                     </div>
                 </div>

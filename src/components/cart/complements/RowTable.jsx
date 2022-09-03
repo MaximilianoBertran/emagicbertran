@@ -7,7 +7,7 @@ const RowTable = (props) => {
     const {item, index} = props
     
     return (
-        <tr key={index}>
+        <tr key={"td"+index}>
             <th scope="row">{ index }</th>
             <td> { item.name } </td>
             <td> { item.description } </td>

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { Fragment, useContext } from 'react'
 import { GlobalContext } from '../../context/GlobalProvider';
 import PriceFormat from '../itemListContainer/complements/PriceFormat';
 import RowTable from './complements/RowTable';
@@ -21,7 +21,9 @@ const CartTable = () => {
       <tbody>
         { cart.length > 0 ? 
           cart.sort((a, b) => a.id - b.id).map((item, index) => (
-            <RowTable item={item} index={index}/>
+            <Fragment key={index}>
+              <RowTable item={item} index={index}/>
+            </Fragment>
           ))
         :
           <tr>
@@ -29,7 +31,7 @@ const CartTable = () => {
           </tr>
         }
       </tbody>
-      { totalAmount() > 0 ?
+      { totalAmount() > 0 &&
         <tfoot>
           <tr>
             <th colSpan="5"></th>
@@ -40,7 +42,6 @@ const CartTable = () => {
             </td>
           </tr>
         </tfoot>
-        : ""
       }
     </table>
   )
