@@ -20,7 +20,7 @@ const PriceDetail = (props) => {
     <div className='text-center mb-5 p-3' style={{ height: "180px" }}>
       <h2> <PriceFormat price={ price } /></h2>
       <h5> <p>{ quote } x </p><PriceFormat price={ parseFloat(price/quote).toFixed(2) } /> </h5>
-      <label for="Quote">Cuotas</label>
+      <label htmlFor="Quote">Cuotas</label>
       <select id="Quote" name="Quote" className='form-select form-select-sm' defaultValue={ '1' } onChange={ (option) => handleChange(option.target.value) }>
         <option value="1">1</option>
         <option value="3">3</option>
