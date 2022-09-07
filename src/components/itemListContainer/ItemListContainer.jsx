@@ -8,7 +8,6 @@ import { collection, getDocs } from 'firebase/firestore'
 const ItemListContainer = (props) => {
   const params = useParams()
   const [products, setProducts] = useState([])
-  
   useEffect(() => {
     const getColData = async () => {
       const data = collection(db,"products")
