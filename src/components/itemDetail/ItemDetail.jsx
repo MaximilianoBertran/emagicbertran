@@ -26,13 +26,13 @@ const ItemDetail = (props) => {
           </div>
           <div className='text-left text-dark' style={{fontSize: "11px"}}>
             * Si elige abonar en cuotas, el oro sera descontado por dia de su cuenta. <br />
-            ** En caso de no tener saldo recibira un status negativo de moroso hasta abonar la deuda. 
+            ** En caso de no tener saldo recibira un status negativo de moroso hasta abonar la deuda.
           </div>
-          <div className='row bg-light'>
+          <div className='row bg-light'>{modalStatus}
             <ItemCount product={props.product} />
           </div>
         </div>
-        {modalStatus && <ModalFinish productName={props.product.name} />}
+        {modalStatus && <ModalFinish />}
       </div>
   )
 }

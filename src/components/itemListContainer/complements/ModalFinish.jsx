@@ -1,17 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Modal from 'react-modal'
 import { Link } from 'react-router-dom';
+import { GlobalContext } from '../../../context/GlobalProvider';
 import '../css/Modal.css'
 
 const ModalFinish = () => {
-    const [modalIsOpen, setIsOpen] = React.useState(true);
+    
+    const {modalStatus, setModalStatus} = useContext(GlobalContext)
 
     const closeModal = () => {
-        setIsOpen(false);
+        setModalStatus(false);
     }
 
     return (
-        <Modal className="Modal" isOpen={modalIsOpen} contentLabel="Congratulations" appElement={document.getElementById('root')}>
+        <Modal className="Modal" isOpen={modalStatus} contentLabel="Congratulations" appElement={document.getElementById('root')}>
             <div className="modal-dialog">
                 <div className="modal-content">
                 <div className="modal-header">
