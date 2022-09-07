@@ -4,7 +4,7 @@ import { GlobalContext } from '../../../context/GlobalProvider';
 const ItemCount = (props) => {
     const {product} = props;
     const [count, setCount] = useState(0);
-    const {addProduct, findCartById} = useContext (GlobalContext)
+    const {addProduct, findCartById,setModalStatus} = useContext (GlobalContext)
 
     const less = () => {
         if (count-1 >= 0) {
@@ -21,6 +21,7 @@ const ItemCount = (props) => {
     const addCart = () => {
         addProduct(product, count)
         setCount(0)
+        setModalStatus(true)
     }
 
     return (
@@ -31,8 +32,9 @@ const ItemCount = (props) => {
                 <button type="button" onClick={ () => add()} className={ count+1 + findCartById(product.id) <= product.stock ? "btn btn-outline-secondary border-0 rounded-0 col-4" : "btn btn-outline-secondary border-0 rounded-0 col-4 disabled"}>+</button>
             </div>
             <div className="row d-grid gap-2">
-                <button type="button" onClick={ () => addCart() } className={ count < 1 || (count + findCartById(product.id)) > product.stock ? "btn btn-primary disabled" : "btn btn-primary"}>Agregar a carrito</button>
+                <button type="button" onClick={ () => addCart() } className={ count < 1 || (count + findCartById(product.id)) > product.stock ? "btn btn-primary disabled" : "btn btn-primary"}>Add to Cart</button>
             </div>
+            
         </div>
     )
 }

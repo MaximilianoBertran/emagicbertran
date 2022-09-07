@@ -16,23 +16,19 @@
             [
                 {
                     "label": "Armors", 
-                    "to": "/", 
-                    "childs": false 
+                    "to": "/"
                 },
                 {
                     "label": "Accesories", 
-                    "to": "/", 
-                    "childs": false
+                    "to": "/"
                 },
                 {
                     "label": "SpellBooks", 
-                    "to": "/", 
-                    "childs": false
+                    "to": "/"
                 },
                 {
                     "label": "Weapons", 
-                    "to": "/", 
-                    "childs": false
+                    "to": "/"
                 }
             ] 
         }
