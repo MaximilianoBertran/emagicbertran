@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './css/ItemDetail.css'
 import ItemCount from '../itemListContainer/complements/ItemCount'
 import PriceDetail from './complements/PriceDetail';
+import ModalFinish from '../itemListContainer/complements/ModalFinish';
+import { GlobalContext } from '../../context/GlobalProvider';
 
 const ItemDetail = (props) => {
+
+  const {modalStatus} = useContext (GlobalContext)
 
   return (
       <div className="detail row row-cols-1 row-cols-md-2 border border-dark rounded mb-2 ">
@@ -28,6 +32,7 @@ const ItemDetail = (props) => {
             <ItemCount product={props.product} />
           </div>
         </div>
+        {modalStatus && <ModalFinish productName={props.product.name} />}
       </div>
   )
 }

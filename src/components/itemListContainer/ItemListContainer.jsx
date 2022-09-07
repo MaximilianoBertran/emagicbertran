@@ -2,16 +2,21 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemList from './complements/ItemList'
-import data from '../products.json'
+import db from '../../services'
+import { collection, getDocs } from 'firebase/firestore'
 
 const ItemListContainer = (props) => {
   const params = useParams()
-
   const [products, setProducts] = useState([])
+  
   useEffect(() => {
-    new Promise( (resolve, reject) => {
-      setTimeout(()=> {resolve(data.products)}, 2000)
-    }).then ( result => setProducts(result))
+    const getColData = async () => {
+      const data = collection(db,"products")
+      const col = await getDocs(data)
+      setProducts(col.docs.map((doc) => doc.data()))
+    }
+
+    getColData()
   })
   
   return (

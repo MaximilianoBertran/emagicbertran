@@ -6,6 +6,7 @@ export const GlobalContext = createContext()
 const GlobalProvider = ({children}) => {
 
   const [cart, setCart] = useState([])
+  const [modalStatus, setModalStatus] = useState(false)
 
   const itemCartCount = () => {
     return cart.map(item => item.cant).reduce((prev, curr) => prev + curr, 0);
@@ -57,7 +58,9 @@ const GlobalProvider = ({children}) => {
   return (
     <GlobalContext.Provider value={{
       cart,
+      modalStatus,
       setCart,
+      setModalStatus,
       itemCartCount,
       totalAmount,
       addProduct,
