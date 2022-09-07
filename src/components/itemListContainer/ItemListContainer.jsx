@@ -12,9 +12,8 @@ const ItemListContainer = (props) => {
     const getColData = async () => {
       const data = collection(db,"products")
       const col = await getDocs(data)
-      setProducts(col.docs.map((doc) => doc.data()))
+      setProducts(col.docs.map((doc) => doc = { id: doc.id, ...doc.data()}))
     }
-
     getColData()
   })
   
