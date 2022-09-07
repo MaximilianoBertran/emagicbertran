@@ -32,7 +32,7 @@ const ItemDetail = (props) => {
             <ItemCount product={props.product} />
           </div>
         </div>
-        {modalStatus && <ModalFinish />}
+        <ModalFinish />
       </div>
   )
 }
