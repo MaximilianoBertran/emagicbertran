@@ -88,13 +88,13 @@ const CartTable = () => {
             <div className="modal-content">
             <div className="modal-header">
                 <h4 className="modal-title">Congratulations!</h4>
-                <Link type="button" className="btn-close" to="/" aria-label="Close"></Link>
+                <Link type="button" className="btn-close" to="/market" aria-label="Close"></Link>
             </div>
             <div className="modal-body">
               <p>Your products will be deposited in the trunk of your account within the next 24 hours and you will be able to access them from any character linked to the account.</p>
             </div>
             <div className="modal-footer" style={{backgroundColor: "#dee2e6"}}>
-                <Link type="button" to="/" className="btn btn-primary" style={{ width: "100px"}}> Accept </Link>
+                <Link type="button" to="/market" className="btn btn-primary" style={{ width: "100px"}}> Accept </Link>
             </div>
             </div>
         </div>

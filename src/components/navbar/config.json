@@ -6,6 +6,10 @@
             "to": "/"
         },
         {
+            "label": "Market", 
+            "to": "/market"
+        },
+        {
             "label": "About Us", 
             "to": "/about-us"
         },
@@ -16,19 +20,19 @@
             [
                 {
                     "label": "Armors", 
-                    "to": "/"
+                    "to": "/market/"
                 },
                 {
                     "label": "Accesories", 
-                    "to": "/"
+                    "to": "/market/"
                 },
                 {
                     "label": "SpellBooks", 
-                    "to": "/"
+                    "to": "/market/"
                 },
                 {
                     "label": "Weapons", 
-                    "to": "/"
+                    "to": "/market/"
                 }
             ] 
         }

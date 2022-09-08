@@ -1,11 +1,9 @@
 import React from 'react'
-import ItemListContainer from '../components/itemListContainer/ItemListContainer';
+import HomeView from '../components/Home/HomeView'
 
 const Home = () => {
   return (
-    <div className='app'>
-      <ItemListContainer />
-    </div>
+    <HomeView />
   )
 }
 

@@ -6,6 +6,7 @@ import AboutUs from '../pages/AboutUs'
 import Navbar from '../components/navbar/Navbar'
 import ItemView from '../pages/ItemView'
 import Footer from '../components/footer/Footer'
+import Market from '../pages/Market'
 
 const Index = () => {
   return (
@@ -13,7 +14,8 @@ const Index = () => {
         <Navbar />
         <Routes>
             <Route path='/' element= { <Home /> } />
-            <Route path='/:category' element= { <Home /> } />
+            <Route path='/market' element= { <Market /> } />
+            <Route path='/market/:category' element= { <Market /> } />
             <Route path='/item-detail/:id' element= { <ItemView /> } />
             <Route path='/about-us' element= { <AboutUs /> } />
             <Route path='/cart' element= { <Cart /> } />

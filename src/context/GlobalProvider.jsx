@@ -5,6 +5,8 @@ export const GlobalContext = createContext()
 
 const GlobalProvider = ({children}) => {
 
+  const appName =  'e-Magic'
+
   const [cart, setCart] = useState([])
   const [modalStatus, setModalStatus] = useState(false)
 
@@ -57,6 +59,7 @@ const GlobalProvider = ({children}) => {
 
   return (
     <GlobalContext.Provider value={{
+      appName,
       cart,
       modalStatus,
       setCart,

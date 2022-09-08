@@ -14,7 +14,6 @@ const Navbar = () => {
 
     const user = {name: "Maximiliano", apellido: "Bertran", img: "https://www.nacionflix.com/__export/1645312494958/sites/debate/img/2022/02/19/serie-halo-misterioso-rostro-master-chief.jpg_1339198940.jpg"}
     const cart = 0
-    const appName = "e-Magic"
 
     function renderLoginElement(user){
         if(user){
@@ -31,7 +30,7 @@ const Navbar = () => {
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <Logo name={ appName } height={ 40 } />
+                    <Logo height={ 40 } />
                     <div className="collapse navbar-collapse justify-content-md-center" id="navbarNav">
                         <ul className="navbar-nav">
                             { 
@@ -54,7 +53,7 @@ const Navbar = () => {
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <Logo name={ appName } height={ 40 } />
+                    <Logo height={ 40 } />
                     { renderLoginElement(user) }
                     <CartWidget cart={cart} />
                     <div className="collapse navbar-collapse justify-content-md-center" id="navbarNav">
