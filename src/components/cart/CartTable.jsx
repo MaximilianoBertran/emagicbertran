@@ -1,16 +1,16 @@
-import React, { Fragment, useContext } from 'react'
-import { useState } from 'react';
-import Modal from 'react-modal'
-import { Link } from 'react-router-dom';
+import React, { Fragment, useContext, useState } from 'react'
 import { GlobalContext } from '../../context/GlobalProvider';
+import Modal from 'react-modal'
+import { Link } from 'react-router-dom'
 import PriceDetail from '../itemDetail/complements/PriceDetail';
-import PriceFormat from '../itemListContainer/complements/PriceFormat';
-import RowTable from './complements/RowTable';
+import CartForm from './complements/CartForm';
+import CardCart from './complements/CardCart';
+import EmptyCart from './complements/EmptyCart';
 
 const CartTable = () => {
   const {cart,totalAmount,clearCart} = useContext(GlobalContext)
-  const [isOpenPayment, setIsOpenPayment] = useState(false)
   const [isOpenCongratulations, setIsOpenCongratulations] = useState(false)
+  const [isOpenPayment, setIsOpenPayment] = useState(false)
 
   const openModalPayment = () => {
     setIsOpenPayment(true);
@@ -27,46 +27,28 @@ const CartTable = () => {
   }
 
   return (
-    <div>
-    <table className="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">Description</th>
-          <th scope="col">Amount</th>
-          <th scope="col">Count</th>
-          <th scope="col">Subtotal</th>
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        { cart.length > 0 ? 
-          cart.sort((a, b) => a.id - b.id).map((item, index) => (
-            <Fragment key={index}>
-              <RowTable item={item} index={index}/>
-            </Fragment>
-          ))
-        :
-          <tr>
-            <td colSpan="7">You don't have any items in the cart.</td>
-          </tr>
-        }
-      </tbody>
-      { totalAmount() > 0 &&
-        <tfoot>
-          <tr>
-            <th colSpan="5"></th>
-            <td> <PriceFormat price={totalAmount()} /></td>
-            <td> 
-              <button onClick={ openModalPayment } className="btn btn-primary mx-1" style={{ width: "100px"}}>Buy</button>
-              <button onClick={ clearCart } className="btn btn-danger mx-1" style={{ width: "100px"}}>Clear</button>
-            </td>
-          </tr>
-        </tfoot>
+    <div className='container mt-5'>
+      { cart.length > 0 ?
+        <div className='row'>
+          <div className='col-lg-6  col-sm-12'>
+            {
+              cart.sort((a, b) => a.name.localeCompare(b.name)).map((item, index) => (
+                <Fragment key={index}>
+                  <CardCart item={item} index={index}/>
+                </Fragment>
+              ))
+            }
+          </div>
+          <div className='col-lg-6  col-sm-12'>
+            <div className='cartW'>
+              <CartForm setIsOpenPayment= { setIsOpenPayment }/>
+            </div>
+          </div>
+        </div>
+      :
+        <EmptyCart />
       }
-    </table>
-    <Modal className="Modal" isOpen={isOpenPayment} contentLabel="Congratulations" appElement={document.getElementById('root')}>
+      <Modal className="Modal" isOpen={isOpenPayment} contentLabel="Congratulations" appElement={document.getElementById('root')}>
         <div className="modal-dialog">
             <div className="modal-content">
             <div className="modal-header">

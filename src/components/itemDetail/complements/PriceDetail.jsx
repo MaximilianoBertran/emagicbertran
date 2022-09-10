@@ -3,7 +3,9 @@ import { useState } from 'react'
 import PriceFormat from '../../itemListContainer/complements/PriceFormat'
 
 const PriceDetail = (props) => {
+
   const originalPrice = props.price
+  
   const [ price, setPrice ] = useState(originalPrice)
   const [ quote , setQuote ] = useState(1)
   const inflation = 70

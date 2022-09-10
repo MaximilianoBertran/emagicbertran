@@ -1,0 +1,16 @@
+@media screen and (max-device-width: 768px) {
+    .cartW {
+        width: 100%!important;
+    }
+    .imgCard {
+        max-width: 50%;
+    }
+}
+@media screen and (min-device-width: 768px) {
+    .cartW {
+        width: 50%!important;
+    }
+    .imgCard {
+        max-width: 100%;
+    }
+}

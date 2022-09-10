@@ -21,7 +21,7 @@ const ModalFinish = () => {
                     <button type="button" className="btn-close" onClick={closeModal} aria-label="Close"></button>
                 </div>
                 <div className="modal-footer" style={{backgroundColor: "#dee2e6"}}>
-                    <Link type="button" to="/" onClick={closeModal} className="btn btn-secondary">Continue</Link>
+                    <Link type="button" to="/market" onClick={closeModal} className="btn btn-secondary">Continue</Link>
                     <Link type="button" to="/cart" onClick={closeModal} className="btn btn-primary">Go to Cart</Link>
                 </div>
                 </div>

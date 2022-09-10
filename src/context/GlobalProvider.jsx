@@ -11,15 +11,15 @@ const GlobalProvider = ({children}) => {
   const [modalStatus, setModalStatus] = useState(false)
 
   const itemCartCount = () => {
-    return cart.map(item => item.cant).reduce((prev, curr) => prev + curr, 0);
+    return cart.map(item => item.cant).reduce((prev, curr) => prev + curr, 0)
   }
 
   const totalAmount = () =>{
-    return cart.map(item => (item.cant * item.price)).reduce((prev, curr) => prev + curr, 0);
+    return cart.map(item => (item.cant * item.price)).reduce((prev, curr) => prev + curr, 0)
   }
 
   const addProduct = (product, count) => {
-    const index = cart.findIndex(item => item.id === Number(product.id))
+    const index = cart.findIndex(item => item.id === product.id)
     if(index >= 0){
       sumProduct(index, count)
     } else {
@@ -53,7 +53,7 @@ const GlobalProvider = ({children}) => {
   }
 
   const findCartById = (id) => {
-    let product = cart.find((item) => item.id === Number(id))
+    let product = cart.find((item) => item.id === id)
     return product ? product.cant : 0
   }
 
