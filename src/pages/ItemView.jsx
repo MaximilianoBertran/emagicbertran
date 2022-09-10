@@ -15,7 +15,10 @@ const ItemView = () => {
       const docSnap = await getDoc(docRef);
       setProduct({ id: docSnap.id, ...docSnap.data()})
     }
-    getProductData()
+    if (product.length < 1 ) {
+      getProductData()
+    }
+    
   })
 
   return (

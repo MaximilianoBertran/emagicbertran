@@ -9,12 +9,15 @@ const ItemListContainer = (props) => {
   const params = useParams()
   const [products, setProducts] = useState([])
   useEffect(() => {
-    const getColData = async () => {
+    const getProductsData = async () => {
       const data = collection(db,"products")
       const col = await getDocs(data)
       setProducts(col.docs.map((doc) => doc = { id: doc.id, ...doc.data()}))
     }
-    getColData()
+    if (products.length < 1) {
+      getProductsData()
+    }
+    
   })
   
   return (
