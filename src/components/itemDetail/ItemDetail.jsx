@@ -16,6 +16,7 @@ const ItemDetail = (props) => {
           <img className="w-50" src={props.product.img} alt={props.product.name} />
           <hr />
           <p className="">{props.product.extension}</p>
+          <h5 className="">STOCK <br/> {props.product.stock}</h5>
         </div>
         <div className="col col-md-5" style={{backgroundColor: "#dee2e6"}}>
           <h5 className='text-center mt-1'>

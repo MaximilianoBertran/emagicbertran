@@ -22,7 +22,7 @@ const CardCart = (props) => {
                                 <div className='col-md-5 p-0'> <PriceFormat price={ item.price * item.cant }/> </div>
                             </div>
                         </div>
-                        <div className="card-text text-center">
+                        <div className="card-text text-center mt-5">
                             <button onClick={ () => lessProduct(index) } className={ item.cant > 1 ? "btn btn-secondary mx-1" : "btn btn-secondary mx-1 disabled"}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-cart-dash" viewBox="0 0 16 16">
                                     <path d="M6.5 7a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"/>

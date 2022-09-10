@@ -11,11 +11,9 @@ const CartTable = () => {
   const {cart,totalAmount,clearCart} = useContext(GlobalContext)
   const [isOpenCongratulations, setIsOpenCongratulations] = useState(false)
   const [isOpenPayment, setIsOpenPayment] = useState(false)
-
-  const openModalPayment = () => {
-    setIsOpenPayment(true);
-  }
-
+  const {cartForm, setCartForm} = useState()
+  const {buyer, setBuyer} = useState()
+  
   const closeModalPayment = () => {
     setIsOpenPayment(false);
   }
@@ -41,7 +39,7 @@ const CartTable = () => {
           </div>
           <div className='col-lg-6  col-sm-12'>
             <div className='cartW'>
-              <CartForm setIsOpenPayment= { setIsOpenPayment }/>
+              <CartForm setIsOpenPayment= { setIsOpenPayment } setBuyer={ setBuyer }/>
             </div>
           </div>
         </div>
@@ -64,8 +62,8 @@ const CartTable = () => {
             </div>
             </div>
         </div>
-    </Modal>
-    <Modal className="Modal" isOpen={isOpenCongratulations} contentLabel="Congratulations" appElement={document.getElementById('root')}>
+      </Modal>
+      <Modal className="Modal" isOpen={isOpenCongratulations} contentLabel="Congratulations" appElement={document.getElementById('root')}>
         <div className="modal-dialog">
             <div className="modal-content">
             <div className="modal-header">
@@ -80,7 +78,7 @@ const CartTable = () => {
             </div>
             </div>
         </div>
-    </Modal>
+      </Modal>
     </div>
   )
 }
