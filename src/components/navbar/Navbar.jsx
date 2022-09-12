@@ -1,27 +1,20 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useContext } from 'react'
 import './css/navbar.css'
 import NavLogout from './complements/NavLogout';
 import NavbarItem from './complements/NavbarItem';
 import NavbarMultiItem from './complements/NavbarMultiItem';
 import NavLogin from './complements/NavLogin';
+import { UserContext } from '../../context/UserProvider';
 
 import CartWidget from './complements/CartWidget';
 import Logo from './complements/Logo'
 import config from './config.json'
+import { NavLink } from 'react-router-dom';
 
 
 const Navbar = () => {
 
-    const user = {name: "Maximiliano", apellido: "Bertran", img: "https://www.nacionflix.com/__export/1645312494958/sites/debate/img/2022/02/19/serie-halo-misterioso-rostro-master-chief.jpg_1339198940.jpg"}
-    const cart = 0
-
-    function renderLoginElement(user){
-        if(user){
-            return <NavLogin name={user.name} img={user.img}/>
-        } else {
-            return <NavLogout />
-        }   
-    }
+    const {user} = useContext (UserContext)
 
     return (
         <header>
@@ -44,8 +37,12 @@ const Navbar = () => {
                             }
                         </ul>
                     </div>
-                    { renderLoginElement(user) }
-                    <CartWidget cart={cart} />
+                    { user.id ?
+                    <NavLogin />
+                    :
+                    <NavLogout />
+                    }
+                    <CartWidget />
                 </div>
             </nav>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark mobile">
@@ -54,8 +51,12 @@ const Navbar = () => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <Logo height={ 40 } />
-                    { renderLoginElement(user) }
-                    <CartWidget cart={cart} />
+                    { user.id ?
+                    <NavLogin name={user.username} img={user.img}/>
+                    :
+                    <NavLogout />
+                    }
+                    <CartWidget />
                     <div className="collapse navbar-collapse justify-content-md-center" id="navbarNav">
                         <ul className="navbar-nav">
                             { config.routes.map((item, index) => (
@@ -65,6 +66,16 @@ const Navbar = () => {
                                     : <NavbarItem label={item.label} to={item.to} index={"m"+index}/>}
                                 </Fragment>
                             ))}
+                            { !user.id &&
+                                <Fragment>
+                                    <li className="nav-item me-5">
+                                        <NavLink className="nav-link" aria-current="page" to="login">Login</NavLink>
+                                    </li>
+                                    <li className="nav-item me-5">
+                                        <NavLink className="nav-link" aria-current="page" to="register">Sign-up</NavLink>
+                                    </li>
+                                </Fragment>   
+                            }
                         </ul>
                     </div>
                 </div>

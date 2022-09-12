@@ -1,10 +1,12 @@
 import React from 'react'
+import '../css/logout.css'
+import { NavLink } from 'react-router-dom'
 
 const NavLogout = () => {
   return (
-    <div className="text-end me-5">
-        <button type="button" className="btn btn-outline-light me-2">Login</button>
-        <button type="button" className="btn btn-light me-2">Sign-up</button>
+    <div className="text-end me-5 logMobile">
+        <NavLink type="button" to="login" className="btn btn-outline-light me-2">Login</NavLink>
+        <NavLink type="button" to="register" className="btn btn-outline-light me-2">Sign-up</NavLink>
     </div>
   )
 }

@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { GlobalContext } from '../../../context/GlobalProvider';
 
-const CartWidget = (props) => {
+const CartWidget = () => {
 
     const {itemCartCount} = useContext(GlobalContext)
 

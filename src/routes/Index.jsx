@@ -7,6 +7,9 @@ import Navbar from '../components/navbar/Navbar'
 import ItemView from '../pages/ItemView'
 import Footer from '../components/footer/Footer'
 import Market from '../pages/Market'
+import Profile from '../pages/Profile'
+import Login from '../pages/Login'
+import Register from '../pages/Register'
 
 const Index = () => {
   return (
@@ -19,6 +22,9 @@ const Index = () => {
             <Route path='/item-detail/:id' element= { <ItemView /> } />
             <Route path='/about-us' element= { <AboutUs /> } />
             <Route path='/cart' element= { <Cart /> } />
+            <Route path='/profile' element= { <Profile /> } />
+            <Route path='/login' element= { <Login /> } />
+            <Route path='/register' element= { <Register /> } />
         </Routes>
         <Footer />
     </BrowserRouter>

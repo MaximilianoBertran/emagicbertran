@@ -20,14 +20,14 @@ const ItemDetail = (props) => {
         </div>
         <div className="col col-md-5" style={{backgroundColor: "#dee2e6"}}>
           <h5 className='text-center mt-1'>
-            Opciones de pago
+            Payment options
           </h5>
           <div className='row mb-4'>
             <PriceDetail price={props.product.price}/>
           </div>
           <div className='text-left text-dark' style={{fontSize: "11px"}}>
-            * Si elige abonar en cuotas, el oro sera descontado por dia de su cuenta. <br />
-            ** En caso de no tener saldo recibira un status negativo de moroso hasta abonar la deuda.
+            * If you choose to pay in installments, the gold will be deducted per day from your account. <br />
+            ** If you do not have a balance, you will receive a negative "debtor" status until the debt is paid.
           </div>
           <div className='row bg-light'>{modalStatus}
             <ItemCount product={props.product} />

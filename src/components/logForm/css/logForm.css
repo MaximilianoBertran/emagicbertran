@@ -1,0 +1,10 @@
+@media screen and (max-device-width: 768px) {
+    .logform {
+        width: 75%!important;
+    }
+}
+@media screen and (min-device-width: 768px) {
+    .logform {
+        width: 50%!important;
+    }
+}
