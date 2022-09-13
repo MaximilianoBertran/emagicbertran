@@ -8,7 +8,7 @@ import CardCart from './complements/CardCart';
 import EmptyCart from './complements/EmptyCart';
 
 const CartTable = () => {
-  const [orderId, setOrderId] = useState(null)
+  let orderId = null
   const {cart,totalAmount,clearCart, finishOperation} = useContext(GlobalContext)
   const [isOpenCongratulations, setIsOpenCongratulations] = useState(false)
   const [isOpenPayment, setIsOpenPayment] = useState(false)
@@ -24,10 +24,10 @@ const CartTable = () => {
   }
 
   const closeModalPaymentPay = async () => {
-    setOrderId(await finishOperation(cartForm))
+    orderId = await finishOperation(cartForm)
     if(orderId){
       clearCart()
-      setMessage(`Order ID ${orderId}.Your products will be deposited in the trunk of your account within the next 24 hours and you will be able to access them from any character linked to the account.`)
+      setMessage(`Order ID ${orderId}.`)
     } else {
       setMessage(`The order can't be generate.`)
     }
@@ -78,11 +78,11 @@ const CartTable = () => {
         <div className="modal-dialog">
             <div className="modal-content">
             <div className="modal-header">
-                <h4 className="modal-title">{orderId ? "Congratulations!":"We fail..."}</h4>
+                <h4 className="modal-title">{orderId !== false ? "Congratulations!":"We fail..."}</h4>
                 <Link type="button" className="btn-close" to="/market" aria-label="Close"></Link>
             </div>
             <div className="modal-body">
-              <p>{message}</p>
+              <p>{message} <br/>{orderId !== false && "Your products will be deposited in the trunk of your account within the next 24 hours and you will be able to access them from any character linked to the account."}</p>
             </div>
             <div className="modal-footer" style={{backgroundColor: "#dee2e6"}}>
                 <Link type="button" to="/market" className="btn btn-primary" style={{ width: "100px"}}> Accept </Link>
