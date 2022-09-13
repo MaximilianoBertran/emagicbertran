@@ -11,6 +11,8 @@ const GlobalProvider = ({children}) => {
 
   const [cart, setCart] = useState([])
   const [modalStatus, setModalStatus] = useState(false)
+  const [quote, setQuote] = useState(1)
+  const [financial, setFinancial] = useState(0)
 
   const itemCartCount = () => {
     return cart.map(item => item.cant).reduce((prev, curr) => prev + curr, 0)
@@ -61,7 +63,7 @@ const GlobalProvider = ({children}) => {
 
   const finishOperation = async (form) => {
     const col = collection(db, "orders")
-    const order = await addDoc(col, {...form, total: totalAmount(), items: cart})
+    const order = await addDoc(col, {...form, total: quote > 3 ? financial : totalAmount(), items: cart, quote: quote})
     if(order.id){
       return order.id    
     } else {
@@ -74,6 +76,10 @@ const GlobalProvider = ({children}) => {
       appName,
       cart,
       modalStatus,
+      quote,
+      financial,
+      setFinancial,
+      setQuote,
       setCart,
       setModalStatus,
       itemCartCount,

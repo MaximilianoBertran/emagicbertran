@@ -23,7 +23,7 @@ const ItemDetail = (props) => {
             Payment options
           </h5>
           <div className='row mb-4'>
-            <PriceDetail price={props.product.price}/>
+            <PriceDetail price={props.product.price} real={false} />
           </div>
           <div className='text-left text-dark' style={{fontSize: "11px"}}>
             * If you choose to pay in installments, the gold will be deducted per day from your account. <br />

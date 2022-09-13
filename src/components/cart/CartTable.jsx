@@ -55,12 +55,13 @@ const CartTable = () => {
               { user.id ?
                 <CartForm setIsOpenPayment= { setIsOpenPayment } cartForm={ cartForm } setCartForm={ setCartForm }/>
               :
-                <div className='mb-4 text-center'> 
+                <div className='mb-4 p-3 text-center border rounded'> 
                   <p>Please log in to continue.</p>
                   <Link type="button" to="/login" className="btn btn-outline-dark me-2">Login</Link>
+                  <p>If you don't have account, please register.</p>
+                  <Link type="button" to="/register" className="btn btn-outline-dark me-2">Register</Link>
                 </div>
               }
-              
             </div>
           </div>
         </div>
@@ -75,7 +76,7 @@ const CartTable = () => {
                 <button type="button" className="btn-close" onClick={closeModalPayment} aria-label="Close"></button>
             </div>
             <div className="modal-body">
-              <PriceDetail price={totalAmount()} />
+              <PriceDetail price={totalAmount()} real={true} />
             </div>
             <div className="modal-footer" style={{backgroundColor: "#dee2e6"}}>
                 <button type="button" onClick={closeModalPaymentPay} className="btn btn-primary" style={{ width: "100px"}}>Pay</button>
