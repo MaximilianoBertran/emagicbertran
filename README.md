@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# E-magic es el website e e-commerce del videojuego MMO Epic World
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+El sitio cuenta con las siguientes secciones:
 
-## Available Scripts
+## Home
 
-In the project directory, you can run:
+Es el primer contacto con el usuario, donde vera enlace de descargas y un poco de info del mundo.
 
-### `npm start`
+## About us
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Es una pagina con información básica de Patata Studios, la desarrolladora del MMO.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Market
 
-### `npm test`
+El corazon del sitio. El market da la lista completa de los articulos en venta y algunas funcionalidades que adelante se detallan:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Detalle: se puede entrar a cada item del listado para ver sus detalles (descripcion, stock, financiación)
+- Sumar a carrito: tanto del listado como de la vista detalle podemos sumar objetos al carrito (en caso de que el objeto a agregar ya este en el carrito se sumara a la cantidad del registro existente NO se duplica el registro)
+- Financiación: se ofrece una vista previa a la financiación del producto a valor unitario desde la vista de detalle.
 
-### `npm run build`
+## Categories
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Es un filtro para los objetos del Market filtrado por las categorias de los mismos. Un item puede tener varias categorias.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Register
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+El registro de usuarios es importante, sin estar registrado no es posible realizar compras.
 
-### `npm run eject`
+## Login
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Inicio de sesión con cuenta ya registrada (no guarda la sesión abierta).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Profile
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+La sección de Profile permite cambiar la contraseña o actualizar email y telefono.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Logout
 
-## Learn More
+Cierre de sesión.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Carrito
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+El último paso del proceso de compra sus funcionalidades se detallan acontinuación:
 
-### Code Splitting
+-Cambios: se puede sumar, restar, eliminar items del carrito o vaciarlo con un click.
+-Login: es necesario estar logueado
+-Financiación: Permite financiar la compra, muestra opciones de cuotas (3,6,9 y 12) con el interes segun cuotas elegidas (1 y 3 no tienen interes).
+-Finalizar operación: al elegir la financiación y ejecutar el pago se toma registro de la operación, se restan los objetos del stock y se devuelve un orderID.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Netlify
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Se puede encontrar una vista previa del sitio en:
+https://e-magic.netlify.app/
