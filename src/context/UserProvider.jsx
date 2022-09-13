@@ -59,7 +59,7 @@ const UserProvider = ({children}) => {
             break;
         case "email":
             if (!value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
-            message = `The ${name} must have at least 3 characters`
+            message = `This field must be an email`
             }
             break;
         case "phone":
@@ -71,6 +71,18 @@ const UserProvider = ({children}) => {
             break;
         }
         return message
+    }
+
+    const updateData = async (form) => {
+        let res = null
+        if(form.password){
+            await db.collection('users').doc(user.id).update({ password: form.password })
+        } else {
+            await db.collection('users').doc(user.id).update({email: form.email, phone: form.phone})
+            setUser({...user, email: form.email, phone: form.phone})
+        }
+        console.log(res)
+        return res
     }
 
     const validateUsername = async (username) => {
@@ -89,7 +101,8 @@ const UserProvider = ({children}) => {
             logout,
             register,
             validateUsername,
-            validateFields
+            validateFields,
+            updateData
         }}>
         { children }
         </UserContext.Provider>

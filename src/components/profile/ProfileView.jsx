@@ -1,8 +1,13 @@
-import React from 'react'
+import './css/profile.css'
+import ChangePassword from './complements/ChangePassword'
+import UpdateProfile from './complements/UpdateProfile'
 
 const ProfileView = () => {
   return (
-    <div>ProfileView</div>
+    <div className='container profile mt-5'>
+      <UpdateProfile />
+      <ChangePassword />
+    </div>
   )
 }
 
