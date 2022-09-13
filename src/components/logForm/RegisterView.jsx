@@ -102,7 +102,7 @@ const RegisterView = () => {
         <div className="mb-3">
           <label htmlFor="email" className="form-label">E-mail</label>
           <input
-            className='form-control'
+            className={ `form-control ${error.email && "is-invalid"}` }
             type="email"
             name="email"
             value={ form.email }
@@ -116,7 +116,7 @@ const RegisterView = () => {
         <div className="mb-3">
           <label htmlFor="phone" className="form-label">Phone</label>
           <input
-            className='form-control'
+            className={ `form-control ${error.phone && "is-invalid"}` }
             type="text"
             name="phone"
             value={ form.phone }
