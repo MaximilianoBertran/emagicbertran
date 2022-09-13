@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { createContext } from 'react'
 import db from '../services'
-import { collection, addDoc } from 'firebase/firestore'
+import { collection, addDoc, getDoc, doc } from 'firebase/firestore'
 
 export const GlobalContext = createContext()
 
@@ -65,6 +65,11 @@ const GlobalProvider = ({children}) => {
     const col = collection(db, "orders")
     const order = await addDoc(col, {...form, total: quote > 3 ? financial : totalAmount(), items: cart, quote: quote})
     if(order.id){
+      cart.forEach(async (item) => {
+        const docRef = doc(db, "products", item.id);
+        const docSnap = await getDoc(docRef);
+        await db.collection('products').doc(item.id).update({ stock: (docSnap.data().stock - item.cant) })
+      })
       return order.id    
     } else {
       return false
