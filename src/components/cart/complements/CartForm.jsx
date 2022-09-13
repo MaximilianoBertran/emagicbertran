@@ -1,11 +1,13 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { GlobalContext } from '../../../context/GlobalProvider'
+import { UserContext } from '../../../context/UserProvider'
 import '../css/cart.css'
 
 const CartForm = (props) => {
 
     const {clearCart} = useContext(GlobalContext)
+    const {user} = useContext(UserContext)
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -17,7 +19,6 @@ const CartForm = (props) => {
         console.log("nombre " + name + "value " +value)
     }
 
-
     return (
         <div className='mb-4'>
             <h3>User information</h3>
@@ -26,7 +27,7 @@ const CartForm = (props) => {
                     className='form-control mb-3'
                     type="text"
                     name="username"
-                    value=""
+                    value={ user.username ?? "" }
                     placeholder='Username' 
                     onChange={ (e) => handleChange(e) }
                 />
@@ -34,7 +35,7 @@ const CartForm = (props) => {
                     className='form-control mb-3'
                     type="email"
                     name="email"
-                    value=""
+                    value={ user.email ?? "" }
                     placeholder='email example@example.com' 
                     onChange={ (e) => handleChange(e) }
                 />
@@ -42,7 +43,7 @@ const CartForm = (props) => {
                     className='form-control mb-3'
                     type="text"
                     name="phone"
-                    value=""
+                    value={ user.phone ?? "" }
                     placeholder='+54-11-5555-4444' 
                     onChange={ (e) => handleChange(e) }
                 />

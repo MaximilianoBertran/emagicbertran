@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { createContext } from 'react'
 import { Navigate } from 'react-router-dom'
 import db from '../services'
+import { collection, addDoc } from 'firebase/firestore'
 
 export const UserContext = createContext()
 
@@ -26,8 +27,25 @@ const UserProvider = ({children}) => {
         return <Navigate to="/home" />
     }
 
-    const register = () => {
+    const register = async (form) => {
+        try {
+            const col = collection(db, "users")
+            const user = await addDoc(col, form)
+            if(user.id){
+                setUser({id: user.id, ...form})
+            }             
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
+    const validateUsername = async (username) => {
+        const docSnap = await db.collection('users').where('username', '==', username).get();
+        if(docSnap.docs.length > 0){
+            return false
+        } else {
+            return true
+        }
     }
     
     return (
@@ -35,7 +53,8 @@ const UserProvider = ({children}) => {
             user,
             login,
             logout,
-            register
+            register,
+            validateUsername
         }}>
         { children }
         </UserContext.Provider>

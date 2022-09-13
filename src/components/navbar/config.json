@@ -6,12 +6,12 @@
             "to": "/"
         },
         {
-            "label": "Market", 
-            "to": "/market"
-        },
-        {
             "label": "About Us", 
             "to": "/about-us"
+        },
+        {
+            "label": "Market", 
+            "to": "/market"
         },
         {
             "label": "Categories", 

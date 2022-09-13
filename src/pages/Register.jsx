@@ -10,8 +10,8 @@ const Register = () => {
     return (
         <div className='container'>
             { 
-            user.length > 0 ?
-            <Navigate to="/profile" />
+            user.id ?
+            <Navigate to="/" />
             :
             <RegisterView />
             }
