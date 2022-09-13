@@ -8,19 +8,30 @@ import CardCart from './complements/CardCart';
 import EmptyCart from './complements/EmptyCart';
 
 const CartTable = () => {
-  const {cart,totalAmount,clearCart} = useContext(GlobalContext)
+  const [orderId, setOrderId] = useState(null)
+  const {cart,totalAmount,clearCart, finishOperation} = useContext(GlobalContext)
   const [isOpenCongratulations, setIsOpenCongratulations] = useState(false)
   const [isOpenPayment, setIsOpenPayment] = useState(false)
-  const {cartForm, setCartForm} = useState()
-  const {buyer, setBuyer} = useState()
+  const [message, setMessage] = useState("")
+  const [cartForm, setCartForm] = useState({
+    buyer: {},
+    total: totalAmount,
+    items: cart
+  })
   
   const closeModalPayment = () => {
     setIsOpenPayment(false);
   }
 
-  const closeModalPaymentPay = () => {
-    setIsOpenPayment(false);
-    clearCart()
+  const closeModalPaymentPay = async () => {
+    setOrderId(await finishOperation(cartForm))
+    if(orderId){
+      clearCart()
+      setMessage(`Order ID ${orderId}.Your products will be deposited in the trunk of your account within the next 24 hours and you will be able to access them from any character linked to the account.`)
+    } else {
+      setMessage(`The order can't be generate.`)
+    }
+    setIsOpenPayment(false)
     setIsOpenCongratulations(true)
   }
 
@@ -39,7 +50,7 @@ const CartTable = () => {
           </div>
           <div className='col-lg-6  col-sm-12'>
             <div className='cartW'>
-              <CartForm setIsOpenPayment= { setIsOpenPayment } setBuyer={ setBuyer }/>
+              <CartForm setIsOpenPayment= { setIsOpenPayment } cartForm={ cartForm } setCartForm={ setCartForm }/>
             </div>
           </div>
         </div>
@@ -67,11 +78,11 @@ const CartTable = () => {
         <div className="modal-dialog">
             <div className="modal-content">
             <div className="modal-header">
-                <h4 className="modal-title">Congratulations!</h4>
+                <h4 className="modal-title">{orderId ? "Congratulations!":"We fail..."}</h4>
                 <Link type="button" className="btn-close" to="/market" aria-label="Close"></Link>
             </div>
             <div className="modal-body">
-              <p>Your products will be deposited in the trunk of your account within the next 24 hours and you will be able to access them from any character linked to the account.</p>
+              <p>{message}</p>
             </div>
             <div className="modal-footer" style={{backgroundColor: "#dee2e6"}}>
                 <Link type="button" to="/market" className="btn btn-primary" style={{ width: "100px"}}> Accept </Link>

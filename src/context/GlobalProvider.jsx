@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { createContext } from 'react'
+import db from '../services'
+import { collection, addDoc } from 'firebase/firestore'
 
 export const GlobalContext = createContext()
 
@@ -57,6 +59,16 @@ const GlobalProvider = ({children}) => {
     return product ? product.cant : 0
   }
 
+  const finishOperation = async (form) => {
+    const col = collection(db, "orders")
+    const order = await addDoc(col, {...form, total: totalAmount(), items: cart})
+    if(order.id){
+      return order.id    
+    } else {
+      return false
+    }     
+  }
+
   return (
     <GlobalContext.Provider value={{
       appName,
@@ -71,7 +83,8 @@ const GlobalProvider = ({children}) => {
       lessProduct,
       deleteProduct,
       clearCart,
-      findCartById
+      findCartById,
+      finishOperation
     }}>
       { children }
     </GlobalContext.Provider>

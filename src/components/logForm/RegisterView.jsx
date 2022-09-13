@@ -6,7 +6,7 @@ import { UserContext } from '../../context/UserProvider';
 
 const RegisterView = () => {
 
-  const { register, validateUsername } = useContext(UserContext)
+  const { register, validateUsername, validateFields } = useContext(UserContext)
   const [error, setError ] = useState({
     username: null,
     password: null,
@@ -22,7 +22,7 @@ const RegisterView = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault()
-    if (validateError()) {
+    if (validateError) {
       let valid = await validateUsername(form.username)
       if(valid){
         delete form['confirmPassword']
@@ -49,37 +49,7 @@ const RegisterView = () => {
   }
 
   const validate = (name, value) => {
-    let message = null
-    switch (name) {
-      case "username":
-        if (value.length < 3) {
-          message = `The ${name} must have at least 3 characters`
-        }
-        break;
-      case "password":
-        if (!value.match(/^[A-Za-z]\w{7,14}$/)) {
-          message = `Password`
-        }
-        break;
-      case "confirmPassword":
-        if (value !== form.password) {
-          message = `The password and its confirmation must be the same`
-        }
-        break;
-      case "email":
-        if (!value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
-          message = `The ${name} must have at least 3 characters`
-        }
-        break;
-      case "phone":
-        if (!value.match(/^[+]?[(]?[0-9]{3,4}[)]?[-\s.]?[0-9]{3,4}[-\s.]?[0-9]{4,6}$/)) {
-          message = `The phone number is not in the correct format`
-        }
-        break;
-      default:
-        break;
-    }
-    setError({...error, [name]: message })
+    setError({...error, [name]: validateFields(name, value,form) })
   }
 
   return (
