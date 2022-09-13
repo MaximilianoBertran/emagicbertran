@@ -81,7 +81,6 @@ const UserProvider = ({children}) => {
             await db.collection('users').doc(user.id).update({email: form.email, phone: form.phone})
             setUser({...user, email: form.email, phone: form.phone})
         }
-        console.log(res)
         return res
     }
 
