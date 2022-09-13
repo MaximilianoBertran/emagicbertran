@@ -1,5 +1,6 @@
 import React, { Fragment, useContext, useState } from 'react'
 import { GlobalContext } from '../../context/GlobalProvider';
+import { UserContext } from '../../context/UserProvider';
 import Modal from 'react-modal'
 import { Link } from 'react-router-dom'
 import PriceDetail from '../itemDetail/complements/PriceDetail';
@@ -10,6 +11,7 @@ import EmptyCart from './complements/EmptyCart';
 const CartTable = () => {
   let orderId = null
   const {cart,totalAmount,clearCart, finishOperation} = useContext(GlobalContext)
+  const {user} = useContext(UserContext)
   const [isOpenCongratulations, setIsOpenCongratulations] = useState(false)
   const [isOpenPayment, setIsOpenPayment] = useState(false)
   const [message, setMessage] = useState("")
@@ -50,7 +52,15 @@ const CartTable = () => {
           </div>
           <div className='col-lg-6  col-sm-12'>
             <div className='cartW'>
-              <CartForm setIsOpenPayment= { setIsOpenPayment } cartForm={ cartForm } setCartForm={ setCartForm }/>
+              { user.id ?
+                <CartForm setIsOpenPayment= { setIsOpenPayment } cartForm={ cartForm } setCartForm={ setCartForm }/>
+              :
+                <div className='mb-4 text-center'> 
+                  <p>Please log in to continue.</p>
+                  <Link type="button" to="/login" className="btn btn-outline-dark me-2">Login</Link>
+                </div>
+              }
+              
             </div>
           </div>
         </div>
